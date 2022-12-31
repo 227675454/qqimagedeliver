@@ -66,6 +66,18 @@ local req = {
 httpPost(req)
 ```
 
+按键精灵
+```lua
+Import "zm.luae" //导入插件,只需执行一次,转换base64要用紫猫插件或者山海插件
+zm.Init //初始化
+
+SnapShot (GetTempDir() & "QQ.png",x1,y1,x2,y2)//截图必须限定大小，大小最大约800*800，截图过大会post失败
+dim b64=zm.EncodeURL(zm.FileReadBinaryBase64(GetTempDir() & "QQ.png"))
+dim postdata = "to=" & to & "&info=" & info & "&image=" & b64
+zm.HttpPost(QQ通知服务器, postdata)
+        
+```
+
 ## 常见问题
 
 - 账号冻结：少加群加好友、少发长数字串、多号分流。
